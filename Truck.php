@@ -13,7 +13,7 @@ class Truck extends Vehicle
         $this->energy = $energy;
     }
 
-    public function setLoad($load): void
+    public function setLoad(int $load): void
     {
         $this->load = $load;
     }
@@ -23,7 +23,7 @@ class Truck extends Vehicle
         return $this->load;
     }
 
-    public function setStorageCapacity($storageCapacity): void
+    public function setStorageCapacity(int $storageCapacity): void
     {
         $this->storageCapacity = $storageCapacity;
     }
@@ -34,7 +34,7 @@ class Truck extends Vehicle
         return $this->storageCapacity;
     }
 
-    public function setEnergy($energy): void
+    public function setEnergy(string $energy): void
     {
         $this->energy = $energy;
     }
@@ -51,10 +51,9 @@ class Truck extends Vehicle
 
     public function isFull(): string
     {
-        if($this->load == $this->storageCapacity) {
+        if ($this->load == $this->storageCapacity) {
             return 'full';
-        }
-        else {
+        } else {
             return 'in filling';
         }
     }

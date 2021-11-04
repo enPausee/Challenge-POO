@@ -24,6 +24,7 @@ class Car extends Vehicle
         if (in_array($energy, parent::ALLOWED_ENERGIES)) {
             $this->energy = $energy;
         }
+        
         return $this;
     }
 

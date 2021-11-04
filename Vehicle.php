@@ -1,8 +1,7 @@
 <?php
 // Vehicle.php
-class Vehicle
+abstract class Vehicle
 {
-
     public const ALLOWED_ENERGIES = [
         'fuel',
         'electric',
@@ -43,7 +42,7 @@ class Vehicle
 
     public function setCurrentSpeed(int $currentSpeed): void
     {
-        if($currentSpeed >= 0){
+        if ($currentSpeed >= 0) {
             $this->currentSpeed = $currentSpeed;
         }
     }
