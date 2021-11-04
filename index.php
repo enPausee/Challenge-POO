@@ -5,7 +5,7 @@ require_once 'Car.php';
 require_once 'Bicycle.php';
 require_once 'Truck.php';
 
-$car = new Car('rose', 5, 'essence');
+$car = new Car('rose', 5, 'fuel');
 $bike = new Bicycle('bleu', 2);
 $truck = new Truck('vert', 6, 'electrique', 0);
 var_dump($bike);
