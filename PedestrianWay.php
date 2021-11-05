@@ -12,5 +12,8 @@ final class PedestrianWay extends HighWay
         if ($vehicle instanceof Bike || $vehicle instanceof Skateboard) {
             $this->currentVehicles[] = $vehicle;
         }
+        else {
+            throw new InvalidArgumentException("Mauvais type de vehicule inserer");
+        }
     }
 }
