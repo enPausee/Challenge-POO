@@ -4,10 +4,9 @@ class Bicycle extends Vehicle implements LightableInterface
 {
     public function switchOn()
     {
-        if ($this->currentSpeed > 10) {
-            return true;
-        }
+        return $this->currentSpeed > 10;
     }
+
     public function switchOff()
     {
         return false;
