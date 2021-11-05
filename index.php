@@ -4,37 +4,29 @@ require_once 'Vehicle.php';
 require_once 'Car.php';
 require_once 'Bicycle.php';
 require_once 'Truck.php';
+require_once 'HighWay.php';
+require_once 'MotorWay.php';
+require_once 'PedestrianWay.php';
+require_once 'ResidentialWay.php';
 
 $car = new Car('rose', 5, 'fuel');
-$bike = new Bicycle('bleu', 2);
-$truck = new Truck('vert', 6, 'electrique', 0);
-var_dump($bike);
-var_dump($car);
-var_dump($truck);
+$truck = new Truck('vert', 6, 'electric', 0);
+$motorWay = new MotorWay();
+$pedestrianWay = new PedestrianWay();
+$residentialWay = new ResidentialWay();
 
-
-echo $bike->forward();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
-echo '<br> Vitesse du vélo : ' . $bike->getCurrentSpeed() . ' km/h' . '<br>';
-echo $bike->brake();
-
-echo "<br>";
+$motorWay->addVehicle($car);
+var_dump($motorWay->getCurrentVehicles());
 echo "<br>";
 
-echo $car->forward();
-echo '<br> Vitesse de la voiture : ' . $car->getCurrentSpeed() . ' km/h' . '<br>';
-echo $car->brake();
-echo '<br> Vitesse de la voiture : ' . $car->getCurrentSpeed() . ' km/h' . '<br>';
-echo $car->brake();
-echo '<br> Ma voiture est : ' . $car->getColor() . ', avec ' . $car->getNbSeats() . ' places' . ' et roule de façon : '. $car->getEnergy();
-
-echo "<br>";
+$pedestrianWay->addVehicle($car);
+var_dump($pedestrianWay->getCurrentVehicles());
 echo "<br>";
 
-echo $truck->forward();
-echo '<br> Vitesse du camion: ' . $truck->getCurrentSpeed() . ' km/h' . '<br>';
-echo $truck->brake();
-echo '<br> Vitesse du camion : ' . $truck->getCurrentSpeed() . ' km/h' . '<br>';
-echo $truck->brake();
-echo '<br> Mon camion est : ' . $truck->getColor() . ', avec ' . $truck->getNbSeats() . ' places' . ' , roule de façon : '. $truck->getEnergy() . ' et la capacité de stockage est : ' . $truck->getLoad() . ' Camion : ' . $truck->isFull();
+try {
+    $car->start();
+} catch (LogicException $e) {
+    $car->setParkBrake(false);
+} finally {
+    echo "Ma voiture roule comme un donut";
+}

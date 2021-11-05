@@ -6,12 +6,32 @@ class Car extends Vehicle
 {
     private string $energy = "";
 
+    private bool $hasParkBrake = false;
+
     private int $energyLevel;
 
     public function __construct(string $color, int $nbSeats, string $energy)
     {
         parent::__construct($color, $nbSeats);
         $this->setEnergy($energy);
+    }
+
+    public function setParkBrake(bool $hasParkBrake): void
+    {
+        $this->hasParkBrake = $hasParkBrake;
+    }
+
+    public function getParkBrake(): bool
+    {
+        return $this->hasParkBrake;
+    }
+
+    public function start():void
+    {
+        if ($this->hasParkBrake) {
+            throw new LogicException("Frein à main activé");
+        }
+        $this->currentSpeed = 0;
     }
 
     public function getEnergy(): string
